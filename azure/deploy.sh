@@ -3,12 +3,12 @@
 # Azure Container Apps deployment. Idempotent: re-running updates in place.
 set -euo pipefail
 
-# ── Required env (set before running) ─────────────────────────────────────────
-: "${RESOURCE_GROUP:?Set RESOURCE_GROUP}"
-: "${LOCATION:?Set LOCATION (e.g. eastus)}"
-: "${ACR_NAME:?Set ACR_NAME (Azure Container Registry name, no .azurecr.io suffix)}"
-: "${ACA_ENV:?Set ACA_ENV (Container Apps managed environment name)}"
-: "${APP_NAME:?Set APP_NAME}"
+# ── Pre-filled defaults (override via env vars if needed) ─────────────────────
+RESOURCE_GROUP="${RESOURCE_GROUP:-my-etl-rg}"
+LOCATION="${LOCATION:-eastus}"
+ACR_NAME="${ACR_NAME:-myacr}"
+ACA_ENV="${ACA_ENV:-my-aca-env}"
+APP_NAME="${APP_NAME:-migrated-etl-jobs}"
 
 IMAGE_NAME="${IMAGE_NAME:-$APP_NAME}"
 IMAGE_TAG="${IMAGE_TAG:-$(date +%Y%m%d%H%M%S)}"

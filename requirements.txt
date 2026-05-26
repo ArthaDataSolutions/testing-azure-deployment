@@ -1,0 +1,9 @@
+pandas>=2.0
+sqlalchemy>=2.0
+psycopg2-binary
+lxml
+paramiko>=3.4
+tenacity>=8.2
+httpx>=0.27
+requests>=2.31
+lxml>=5.2.0
